@@ -10,10 +10,12 @@ typedef struct Colour {
 
 
 const int COLOUR_COUNT = 2;
+Colour colours[COLOUR_COUNT];
 
-String classify_colour(int r, int g, int b) {
-
-  Colour colours[COLOUR_COUNT];
+/**
+ * fills in the colours array. must run before the classifier
+ */
+void set_colours () {
 
   colours[0].name = "white";
   colours[0].red = 0;
@@ -24,6 +26,13 @@ String classify_colour(int r, int g, int b) {
   colours[1].red = 255;
   colours[1].green = 255;
   colours[1].blue = 255;
+
+}
+
+/**
+ * takes in an r, g, and b value and returns the name of the closest match in the preset colours list
+ */
+String classify_colour (int r, int g, int b) {
 
   // compute the distances from each colour
   int minDistance = INT_MAX;

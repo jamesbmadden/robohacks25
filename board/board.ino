@@ -12,6 +12,10 @@ int green = 0;
 int blue = 0;
 
 void setup() {
+
+  // set up the colour classifier
+  set_colours();
+
   // Setting the outputs
   pinMode(S0, OUTPUT);
   pinMode(S1, OUTPUT);
