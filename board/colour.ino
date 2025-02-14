@@ -1,4 +1,19 @@
+/**
+* utility functions for reading and classifying colours
+*/
 #include <limits.h>
+
+// pins for the colour sensor
+#define C_S0 4
+#define C_S1 3
+#define C_S2 7
+#define C_S3 6
+#define C_OUT 8
+
+// Stores frequency read by the photodiodes
+int red = 0;
+int green = 0;
+int blue = 0;
 
 // defines a colour point that we can reference in our colour classifier algorithm
 typedef struct Colour {
@@ -52,5 +67,35 @@ String classify_colour (int r, int g, int b) {
   }
 
   return minDistanceLabel;
+
+}
+
+/**
+ * read a colour from the sensor
+ */
+Colour read_colour () {
+
+  Colour reading;
+  reading.name = "reading";
+
+  // read red
+  digitalWrite(C_S2,LOW);
+  digitalWrite(C_S3,LOW);
+  
+  reading.red = pulseIn(C_OUT, LOW);
+
+  // read green
+  digitalWrite(C_S2,HIGH);
+  digitalWrite(C_S3,HIGH);
+  
+  reading.green = pulseIn(C_OUT, LOW);
+
+  // read blue
+  digitalWrite(C_S2,LOW);
+  digitalWrite(C_S3,HIGH);
+  
+  blue = pulseIn(C_OUT, LOW);
+
+  return reading;
 
 }
