@@ -24,7 +24,7 @@ typedef struct Colour {
 };
 
 
-const int COLOUR_COUNT = 2;
+const int COLOUR_COUNT = 5;
 Colour colours[COLOUR_COUNT];
 
 /**
@@ -32,15 +32,30 @@ Colour colours[COLOUR_COUNT];
  */
 void set_colours () {
 
-  colours[0].name = "white";
-  colours[0].red = 0;
-  colours[0].green = 0;
-  colours[0].blue = 0;
+  colours[0].name = "black";
+  colours[0].red = 136;
+  colours[0].green = 138;
+  colours[0].blue = 118;
 
-  colours[1].name = "black";
-  colours[1].red = 255;
-  colours[1].green = 255;
-  colours[1].blue = 255;
+  colours[1].name = "blue";
+  colours[1].red = 91;
+  colours[1].green = 48;
+  colours[1].blue = 30;
+
+  colours[2].name = "red";
+  colours[2].red = 34;
+  colours[2].green = 115;
+  colours[2].blue = 90;
+
+  colours[3].name = "green";
+  colours[3].red = 95;
+  colours[3].green = 48;
+  colours[3].blue = 73;
+
+  colours[3].name = "white";
+  colours[3].red = 19;
+  colours[3].green = 20;
+  colours[3].blue = 18;
 
 }
 
