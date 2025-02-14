@@ -3,26 +3,11 @@
 */
 #include <limits.h>
 
-// pins for the colour sensor
-#define C_S0 4
-#define C_S1 3
-#define C_S2 7
-#define C_S3 6
-#define C_IN 8
 
 // Stores frequency read by the photodiodes
 int red = 0;
 int green = 0;
 int blue = 0;
-
-// defines a colour point that we can reference in our colour classifier algorithm
-typedef struct Colour {
-  String name;
-  int red;
-  int green;
-  int blue;
-};
-
 
 const int COLOUR_COUNT = 5;
 Colour colours[COLOUR_COUNT];
@@ -52,10 +37,10 @@ void set_colours () {
   colours[3].green = 48;
   colours[3].blue = 73;
 
-  colours[3].name = "white";
-  colours[3].red = 19;
-  colours[3].green = 20;
-  colours[3].blue = 18;
+  colours[4].name = "white";
+  colours[4].red = 19;
+  colours[4].green = 20;
+  colours[4].blue = 18;
 
 }
 
@@ -64,14 +49,28 @@ void set_colours () {
  */
 String classify_colour (int r, int g, int b) {
 
+  /*Serial.print("classifying colour r = ");
+  Serial.print(r);
+  Serial.print(", g = ");
+  Serial.print(g);
+  Serial.print(", b = ");
+  Serial.println(b);*/
+
   // compute the distances from each colour
-  int minDistance = INT_MAX;
+  double minDistance = INT_MAX;
   String minDistanceLabel = "";
 
   for (int i = 0; i < COLOUR_COUNT; i++) {
     
     // calculate the distance in 3d space
-    int dist = sqrt( sq(r - colours[i].red) + sq(g - colours[i].green) + sq(b - colours[i].blue) );
+    double dist_r = r - colours[i].red;
+    double dist_g = g - colours[i].green;
+    double dist_b = b - colours[i].blue;
+    double dist = sqrt( dist_r * dist_r + dist_g * dist_g + dist_b * dist_b );
+
+    /*Serial.print(colours[i].name);
+    Serial.print(" has distance ");
+    Serial.println(dist);*/
 
     // check if this is the new min distance
     if (dist < minDistance) {
@@ -99,17 +98,23 @@ Colour read_colour () {
   
   reading.red = pulseIn(C_IN, LOW);
 
+  delay(100);
+
   // read green
   digitalWrite(C_S2,HIGH);
   digitalWrite(C_S3,HIGH);
   
   reading.green = pulseIn(C_IN, LOW);
+  
+  delay(100);
 
   // read blue
   digitalWrite(C_S2,LOW);
   digitalWrite(C_S3,HIGH);
   
-  blue = pulseIn(C_IN, LOW);
+  reading.blue = pulseIn(C_IN, LOW);
+  
+  delay(100);
 
   return reading;
 
