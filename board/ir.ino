@@ -1,14 +1,6 @@
 /**
 * utility functions for using the infrared sensor
 */
-#define IR_LIN 2
-#define IR_RIN 1
-
-// results for both the left and the right IR sensor
-typedef struct IRReading {
-  int left;
-  int right;
-};
 
 /**
  * read from the sensor and return 1 for black, 0 for lighter colour.
