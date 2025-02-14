@@ -8,7 +8,7 @@
 #define C_S1 3
 #define C_S2 7
 #define C_S3 6
-#define C_OUT 8
+#define C_IN 8
 
 // Stores frequency read by the photodiodes
 int red = 0;
@@ -82,19 +82,19 @@ Colour read_colour () {
   digitalWrite(C_S2,LOW);
   digitalWrite(C_S3,LOW);
   
-  reading.red = pulseIn(C_OUT, LOW);
+  reading.red = pulseIn(C_IN, LOW);
 
   // read green
   digitalWrite(C_S2,HIGH);
   digitalWrite(C_S3,HIGH);
   
-  reading.green = pulseIn(C_OUT, LOW);
+  reading.green = pulseIn(C_IN, LOW);
 
   // read blue
   digitalWrite(C_S2,LOW);
   digitalWrite(C_S3,HIGH);
   
-  blue = pulseIn(C_OUT, LOW);
+  blue = pulseIn(C_IN, LOW);
 
   return reading;
 
