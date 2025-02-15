@@ -1,7 +1,7 @@
 /**
  * provides methods to manage the motors
  */
- 
+
 void stop () {
 
   // set all motor pins to low
@@ -82,15 +82,40 @@ void rotate_right (int delay_time, float speed) {
 
 /**
  * go side to side to eject seeds
- *//*
+ */
 void wiggle (int wiggle_count) {
 
   for (int i = 0; i < wiggle_count; i++) {
 
     // quickly rotate
-    rotate_left(10, 255);
-    rotate_right(10, 255);
+    rotate_left(10, 1);
+    rotate_right(10, 1);
 
   }
 
-}*/
+}
+
+/**
+ * move to the centre of a circle
+ */
+void move_to_centre () {
+
+  String colour;
+  int n;
+
+  while (colour != "white") {
+    go_forward(100, 0.5);
+    // colour reading
+    Colour reading = read_colour();
+    colour = classify_colour(reading.red, reading.green, reading.blue);
+    n++;
+  }
+
+  stop();
+  // now move backwards
+  for (int i = n / 2; i > 0; i--) {
+    go_backwards(100, 0.5);
+  }
+  stop();
+
+}
