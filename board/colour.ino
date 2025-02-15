@@ -49,13 +49,6 @@ void set_colours () {
  */
 String classify_colour (int r, int g, int b) {
 
-  /*Serial.print("classifying colour r = ");
-  Serial.print(r);
-  Serial.print(", g = ");
-  Serial.print(g);
-  Serial.print(", b = ");
-  Serial.println(b);*/
-
   // compute the distances from each colour
   double minDistance = INT_MAX;
   String minDistanceLabel = "";
@@ -67,10 +60,6 @@ String classify_colour (int r, int g, int b) {
     double dist_g = g - colours[i].green;
     double dist_b = b - colours[i].blue;
     double dist = sqrt( dist_r * dist_r + dist_g * dist_g + dist_b * dist_b );
-
-    /*Serial.print(colours[i].name);
-    Serial.print(" has distance ");
-    Serial.println(dist);*/
 
     // check if this is the new min distance
     if (dist < minDistance) {
