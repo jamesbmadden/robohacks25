@@ -119,3 +119,31 @@ void move_to_centre () {
   stop();
 
 }
+
+/**
+ * continue forwards until the black line on IR
+ */
+void forwards_until_black () {
+
+  IRReading ir = read_ir();
+
+  while (true) {
+    go_forward(10, 1);
+    if (ir.left || ir.right) {
+      return;
+    }
+  }
+
+}
+
+/**
+ * do a wide turn to avoid the red
+ */
+void wide_swerve () {
+
+  rotate_right(100, 1);
+  go_forward(200, 1);
+  rotate_left(200, 1);
+  forwards_until_black();
+
+}
