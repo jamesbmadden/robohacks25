@@ -39,6 +39,7 @@ void setup () {
 }
 
 void loop () {
+
   // STEP 1: course correction
   IRReading ir = read_ir();
 
@@ -56,17 +57,23 @@ void loop () {
   Colour reading = read_colour();
   String colour = classify_colour(reading.red, reading.green, reading.blue);
 
+  // for demonstrating colour sensing ability
+  Serial.println(colour);
+
   // take action based on the colour
   if (colour.compareTo("blue") == 0 && handled_colour.compareTo("blue") != 0) {
     // lake! pause here
     move_to_centre();
-    delay(7000);
+    delay(10000);
     // then keep going
     go_forward(200, 0.75);
   } else if (colour.compareTo("green") == 0 && handled_colour.compareTo("green") != 0) {
     move_to_centre();
     // activate wiggles to drop seeds
     wiggle(50);
+  } else if (colour.compareTo("red") == 0 && handled_colour.compareTo("red") != 0) {
+    // DANGER - try to move around it
+    wide_swerve();
   }
 
   // move forwards and set handled colour
