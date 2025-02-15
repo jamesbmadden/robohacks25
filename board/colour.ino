@@ -98,7 +98,7 @@ Colour read_colour () {
   
   reading.red = pulseIn(C_IN, LOW);
 
-  delay(100);
+  delay(10);
 
   // read green
   digitalWrite(C_S2,HIGH);
@@ -106,7 +106,7 @@ Colour read_colour () {
   
   reading.green = pulseIn(C_IN, LOW);
   
-  delay(100);
+  delay(10);
 
   // read blue
   digitalWrite(C_S2,LOW);
@@ -114,7 +114,7 @@ Colour read_colour () {
   
   reading.blue = pulseIn(C_IN, LOW);
   
-  delay(100);
+  delay(10);
 
   return reading;
 
