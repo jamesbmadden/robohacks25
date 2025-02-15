@@ -19,10 +19,10 @@ void go_forward (int delay_time, float speed) {
   // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
-  digitalWrite(M_1, LOW);
-  digitalWrite(M_2, HIGH);
-  digitalWrite(M_3, LOW);
-  digitalWrite(M_4, HIGH);
+  digitalWrite(M_1, HIGH);
+  digitalWrite(M_2, LOW);
+  digitalWrite(M_3, HIGH);
+  digitalWrite(M_4, LOW);
 
   // wait the specified time
   delay(delay_time);
@@ -36,10 +36,10 @@ void go_backwards (int delay_time, float speed) {
   // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
-  digitalWrite(M_1, HIGH);
-  digitalWrite(M_2, LOW);
-  digitalWrite(M_3, HIGH);
-  digitalWrite(M_4, LOW);
+  digitalWrite(M_1, LOW);
+  digitalWrite(M_2, HIGH);
+  digitalWrite(M_3, LOW);
+  digitalWrite(M_4, HIGH);
   
   // wait the specified time
   delay(delay_time);
@@ -53,10 +53,10 @@ void rotate_left (int delay_time, float speed) {
   // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
-  digitalWrite(M_1, LOW);
-  digitalWrite(M_2, HIGH);
-  digitalWrite(M_3, HIGH);
-  digitalWrite(M_4, LOW);
+  digitalWrite(M_1, HIGH);
+  digitalWrite(M_2, LOW);
+  digitalWrite(M_3, LOW);
+  digitalWrite(M_4, HIGH);
   
   // wait the specified time
   delay(delay_time);
@@ -70,10 +70,10 @@ void rotate_right (int delay_time, float speed) {
   // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
-  digitalWrite(M_1, HIGH);
-  digitalWrite(M_2, LOW);
-  digitalWrite(M_3, LOW);
-  digitalWrite(M_4, HIGH);
+  digitalWrite(M_1, LOW);
+  digitalWrite(M_2, HIGH);
+  digitalWrite(M_3, HIGH);
+  digitalWrite(M_4, LOW);
   
   // wait the specified time
   delay(delay_time);
