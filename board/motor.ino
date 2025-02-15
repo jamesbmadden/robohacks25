@@ -15,8 +15,8 @@ void stop () {
 void go_forward (int delay_time, float speed) {
 
   // set speed (from range 0 to 255)
-  analogWrite(M_SA, int(speed * 255));
-  analogWrite(M_SB, int(speed * 255));
+  // analogWrite(M_SA, int(speed * 255));
+  // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
   digitalWrite(M_1, LOW);
@@ -32,8 +32,8 @@ void go_forward (int delay_time, float speed) {
 void go_backwards (int delay_time, float speed) {
 
   // set speed (from range 0 to 255)
-  analogWrite(M_SA, int(speed * 255));
-  analogWrite(M_SB, int(speed * 255));
+  // analogWrite(M_SA, int(speed * 255));
+  // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
   digitalWrite(M_1, HIGH);
@@ -48,9 +48,9 @@ void go_backwards (int delay_time, float speed) {
 
 void rotate_left (int delay_time, float speed) {
 
-   // set speed (from range 0 to 255)
-  analogWrite(M_SA, int(speed * 255));
-  analogWrite(M_SB, int(speed * 255));
+  // set speed (from range 0 to 255)
+  // analogWrite(M_SA, int(speed * 255));
+  // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
   digitalWrite(M_1, LOW);
@@ -66,8 +66,8 @@ void rotate_left (int delay_time, float speed) {
 void rotate_right (int delay_time, float speed) {
 
   // set speed (from range 0 to 255)
-  analogWrite(M_SA, int(speed * 255));
-  analogWrite(M_SB, int(speed * 255));
+  // analogWrite(M_SA, int(speed * 255));
+  // analogWrite(M_SB, int(speed * 255));
 
   // set pins to forward
   digitalWrite(M_1, HIGH);

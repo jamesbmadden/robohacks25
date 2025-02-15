@@ -25,12 +25,10 @@ void setup () {
   pinMode(IR_RIN, INPUT);
 
   // start the motor pins
-  pinMode(M_SA, OUTPUT);
-  pinMode(M_SB, OUTPUT);
   pinMode(M_1, OUTPUT); // right reverse
   pinMode(M_2, OUTPUT); // right forward
   pinMode(M_3, OUTPUT); // left reverse
-  pinMode(M_4, OUTPUT); // left forward*
+  pinMode(M_4, OUTPUT); // left forward
   
   // set frequency scaling to 20%
   digitalWrite(C_S0, HIGH);
